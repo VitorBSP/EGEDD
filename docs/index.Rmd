@@ -24,7 +24,9 @@ class: middle
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(echo = FALSE, fig.align = "center", message=FALSE, warning=FALSE, cache = TRUE)
+
 ```
+
 
 ```{r}
 library(knitr)
