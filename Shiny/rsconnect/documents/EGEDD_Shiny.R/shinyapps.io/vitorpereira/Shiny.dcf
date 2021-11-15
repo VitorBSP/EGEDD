@@ -1,0 +1,13 @@
+name: Shiny
+title: Shiny
+username:
+account: vitorpereira
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5129980
+bundleId: 5255058
+url: https://vitorpereira.shinyapps.io/Shiny/
+when: 1637004087.79913
+lastSyncTime: 1637004087.79913
+asMultiple: FALSE
+asStatic: FALSE
