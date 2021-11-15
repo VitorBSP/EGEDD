@@ -270,6 +270,10 @@ class: middle
 - Utilização de Simulações de Monte Carlo para estimação de parâmetros e análise de diagnósticos dos modelos;
 
 
+
+
+
+
 ---
 ```{r}
 knitr::include_app("https://vitorpereira.shinyapps.io/Aqui/")
