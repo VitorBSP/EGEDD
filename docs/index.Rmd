@@ -216,7 +216,7 @@ class: middle
 
 # Modelo de Séries Temporais Com Regressão
 Incluindo a estrutura de regressão pelo quantil, por:
-$$  g(\mu_t)={x}_t^{\top}{\beta}=\sum_{j=1}^{k}{x}_{tj}{\beta}=\eta_t, \quad t=1, \ldots, n,$$
+$$g(\mu_t)={x}_t^{\top}{\beta}=\sum_{j=1}^{k}{x}_{tj}{\beta}=\eta_t, \quad t=1, \ldots, n,$$
 $$com\quad {\beta}=(\beta_1, \ldots, \beta_k)^{\top}$$
 --
 
@@ -228,13 +228,45 @@ Assim, ficaremos com o vetor de parâmetros, sendo:
 $${\theta}=(\alpha,\sigma,\lambda,\eta,\gamma,{\beta})$$ 
 Em que $\mu_t$ é o quantil da observação $y_t$ no tempo $t$ e 
 ---
+class: middle
 
 ## Modelo ARMA(p,q)
-$$\phi(L)(g(y_t)-{x_t}^\top{\beta})=\theta(L)r_t,$$
-onde:
+
+Modelo geral para $\mu$:
+
+$$g(\mu_t) = {x}_t^{\top}{\beta} + u_t $$
+Sabendo que pela estrutura arma temos uma relação que inclui o componente $u_t$:
+$u_t = \frac{\phi(\beta)}{\theta(\beta)}\epsilon_t$
+--
+Ficando:
+
+$$g(\mu_t) = {x}_t^{\top}{\beta} + \frac{\phi(\beta)}{\theta(\beta)}\epsilon_t$$
+
+Onde: 
 
 
-$$\phi(L)=-\sum_{j=0}^{p}\phi_jz^j,\quad \theta(L)=-\sum_{j=0}^{q}\theta_jz^j$$
+$$\phi(\beta)=-\sum_{j=0}^{p}\phi_jz^j,\quad \theta(\beta)=-\sum_{j=0}^{q}\theta_jz^j$$
+
+---
+class: middle
+
+Desenvolvendo um pouco algébricamente, conseguimos:
+$$\phi(\beta)(g(\mu_t) -{x}_t^{\top}{\beta}) = \phi(\beta)\epsilon_t$$
+
+$$\left(1\:-\:\phi _1\beta \:-\:\phi _2\beta ^2,\:\ldots ,\:\phi _p\beta ^p\:\right)\left(g\left(\mu _t\right)\:-x_t^{\top } \right)\:=\:\phi \left(\beta \right)\epsilon _t$$
+Até chegar no:
+
+## Modelo final ARMA:
+$$g(\mu_t) -{x}_t^{\top}{\beta} = \sum _{p=1}^n\phi_p(g(\mu_t) -{x}_t^{\top}{\beta}) + \phi(\beta)\epsilon_t$$
+---
+class: middle
+
+# Outros Procedimentos Estatísticos:
+- Construção de testes de hipótese para verificar distribuição dos dados, verificando se é para a EGEDD ou um submodleo;
+- Utilização de métodos númericos para execução de simulações (Newton-Rapson, Optim, Gosolnp);
+- Utilização de Simulações de Monte Carlo para estimação de parâmetros e análise de diagnósticos dos modelos;
+
+
 ---
 ```{r}
 knitr::include_app("https://vitorpereira.shinyapps.io/Aqui/")
