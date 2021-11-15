@@ -1,0 +1,190 @@
+---
+title: "Regressão e Modelos para Séries Temporais com Base na EGEDD"
+subtitle: "Distribuição Dagum Exponencial Generalizada Exponencializada"
+author: "Vítor Bernardo Silveira Pereira"
+encoding: "UTF-8"
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: ["css/default.css", "css/mmp.css" , "css/mmp-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+layout: true
+  
+<div class="my-footer"><span>
+
+<a>Vítor Bernardo Silveira Pereira</a> - Email: <a href="mailto:vitorpereira3115@gmail.com">vitorpereira3115@gmail.com</a>
+</span></div>
+---
+class: middle
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center", message=FALSE, warning=FALSE, cache = TRUE)
+
+```
+
+
+```{r}
+library(knitr)
+library(tidyverse)
+library(widgetframe)
+library(interactingan)
+#xaringan::inf_mr()
+```
+
+# Propriedades da EGED
+
+
+## Função de distribuição acumulada
+$$F_Y(y)=1-\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{d}\right]^{c}\right\}^{\lambda},\quad  y > 0.$$
+
+--
+## Função Quantílica
+$$Q_Y(p)=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-(1-p)^\frac{1}{\lambda}\right)^\frac{1}{c}\right)^{\frac{1}{d}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}^{-\frac{1}{\delta}}, \mbox{ onde }           \quad p \in (0,1).$$
+---
+class: middle
+
+## Função densidade de probabilidade
+$$f_Y(y)= \frac{\alpha\sigma\lambda\delta cd\left(1+\alpha y^{-\delta}\right)^{-\sigma-1}\left[1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right]^{d-1}}{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{d}\right]^{c}\right\}^{1-\lambda}}$$
+
+$$+ \frac{\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{d}\right]^{c-1}}{{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{d}\right]^{c}\right\}^{1-\lambda}}} \quad  y > 0$$
+--
+
+## Não há fórmula fechada para a média e variância
+
+---
+class: middle
+# Submodelos da EGEDD
+
+<table>
+<thead>
+  <tr>
+    <th>Distribuição</th>
+    <th>&alpha;</th>
+    <th>&lambda;</th>
+    <th>&sigma;</th>
+    <th>&delta;</th>
+    <th>&eta;</th>
+    <th>&gamma;</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><b>EGDD</b></td>
+    <td>&alpha;</td>
+    <td>1</td>
+    <td>&sigma;</td>
+    <td>&delta;</td>
+    <td>&eta;</td>
+    <td>&gamma;</td>
+  </tr>
+  <tr>
+    <td><b>DD</b></td>
+    <td>&alpha;</td>
+    <td>1</td>
+    <td>&sigma;</td>
+    <td>&delta;</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td><b>EGEBD</b></td>
+    <td>1</td>
+    <td>&lambda;</td>
+    <td>&sigma;</td>
+    <td>&delta;</td>
+    <td>&eta;</td>
+    <td>&gamma;</td>
+  </tr>
+  <tr>
+    <td><b>DB</b></td>
+    <td>1</td>
+    <td>1</td>
+    <td>&sigma;</td>
+    <td>&delta;</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td><b>EGBD</b></td>
+    <td>1</td>
+    <td>1</td>
+    <td>&sigma;</td>
+    <td>&delta;</td>
+    <td>&eta;</td>
+    <td>&gamma;</td>
+  </tr>
+  <tr>
+    <td><b>EGEFD</b></td>
+    <td>&alpha;</td>
+    <td>&lambda;</td>
+    <td>1</td>
+    <td>&delta;</td>
+    <td>&eta;</td>
+    <td>&gamma;</td>
+  </tr>
+  <tr>
+    <td><b>EGFD</b></td>
+    <td>&alpha;</td>
+    <td>1</td>
+    <td>1</td>
+    <td>&delta;</td>
+    <td>&eta;</td>
+    <td>&gamma;</td>
+  </tr>
+  <tr>
+    <td><b>FD</b></td>
+    <td>&alpha;</td>
+    <td>1</td>
+    <td>1</td>
+    <td>&delta;</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+</tbody>
+</table>
+--
+
+## Reparametrização por Quantil
+$$\mu=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}^{-\frac{1}{\delta}}$$
+
+
+---
+class: middle
+
+## Repametrização por &alpha;
+
+$$\alpha=\frac{1}{\mu^{-\delta}}\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-0,5^\frac{1}{\lambda}\right)^\frac{1}{c}\right)^{\frac{1}{d}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}.$$
+--
+
+## Reparametrização por &delta;
+$$\delta=-\frac{1}{\log(\mu)}\log\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}$$
+---
+
+# Modelo de Séries Temporais Com Regressão
+$$ g(\mu_t)={x}_t^{\top}{\beta}=\zeta_t, \quad t=1, \ldots, n $$
+$$com\quad {\beta}=(\beta_1, \ldots, \beta_k)^{\top}$$
+--
+
+## Função de ligação
+A função de ligação é $g({\mu_t})=\log({\mu_t})$, então temos:
+
+$$\mu_t=\exp\left({x_t}^\top{\beta}\right)=\exp(\eta_t), \quad\mbox{para}\quad t=1, \cdots, n.$$
+---
+
+## Modelo ARMA(p,q)
+$$\phi(L)(g(y_t)-{x_t}^\top{\beta})=\theta(L)r_t,$$
+onde:
+
+
+$$\phi(L)=-\sum_{j=0}^{p}\phi_jz^j,\quad \theta(L)=-\sum_{j=0}^{q}\theta_jz^j,\quad \forall \quad z\in\C,$$
+---
+```{r}
+knitr::include_app("https://vitorpereira.shinyapps.io/Aqui/")
+```
+
+
