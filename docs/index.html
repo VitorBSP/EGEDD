@@ -31,23 +31,68 @@ class: middle
 
 
 
+# Motivação
+
+- A indentificação de uma **distribuição** apropropriada é muito importante para a **análise estatística**;
+- A distribuição Dagum, idealizada por Camilo Dagum, tem ganhado muita atenção na sua utilidade para modelagem da distribuição de renda e análise de confiabilidade:
+  - Distribuição exponenciada **Kumaraswamy-Dagum** (Silva et al., 2015);
+  - Distribuição **Dagum Exponencial Generalizada Exponencializada** proposta em (Nasiru et al., 2019);
+  - **Gompertz Generalizada**, proposta por El-Gohary et al. (2013), entre outros...
+--
+
+- Para modelagem de média, geralmente se utiliza, a **Regressão Linear Normal** ou **Modelos Lineares Generalizados**; 
+- Na prática, alguns dados não se adequam a essas distribuições, então nos últimos anos vêm sendo propostos **modelos alternativos**;
+---
+class: middle
+# Motivação
+
+- Nota-se que nesses artigos, tem-se uma reparametrização em termos da média ou mediana, para possibilitara interpretação dos parâmetros em termos de medidas de posição ou precisão; 
+- Com a reparametrização, uma estrutura de regressão é incluída para modelar a média ou a médiana, assim tendo a mesma abordagem dos MLG'S;
+- Na **EGEDD**, no entanto, **não há forma fechada para média e variância**;
+
+--
+
+- Em Séries Temporais, a abordagem mais usual é a Box e Jenkins, no entanto também estão surgindo modelos alternativos;
+
+- Assim a proposta do projeto, é desenvolver novos modelos para distribuições com suporte nos reais, baseando-se na EGEDD e na distrubuição Dagum. 
+
+--
+
+- **Aplicações:** principalmente na área da modelagem de dados de sobrevivência.
+
+
+---
+class: middle
 
 # Propriedades da EGED
 
 
 ## Função de distribuição acumulada
-`$$F_Y(y)=1-\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{d}\right]^{c}\right\}^{\lambda},\quad  y &gt; 0.$$`
+`$$F_Y(y)=1-\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{\lambda}$$`
 
 --
-## Função Quantílica
-`$$Q_Y(p)=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-(1-p)^\frac{1}{\lambda}\right)^\frac{1}{c}\right)^{\frac{1}{d}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}^{-\frac{1}{\delta}}, \mbox{ onde }           \quad p \in (0,1).$$`
+
+## Suporte
+`$$y &gt; 0$$`
+--
+
+## Espaço Paramétrico
+
+`$$\alpha,\sigma,\lambda,\delta,\eta,\gamma &gt; 0$$`
+--
+
+Os parâmetros `\(\sigma,\lambda,\delta,\eta,\gamma\)` são parâmetros de forma e o parâmetro `\(\alpha\)` é de escala.
+
 ---
 class: middle
 
-## Função densidade de probabilidade
-`$$f_Y(y)= \frac{\alpha\sigma\lambda\delta cd\left(1+\alpha y^{-\delta}\right)^{-\sigma-1}\left[1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right]^{d-1}}{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{d}\right]^{c}\right\}^{1-\lambda}}$$`
+## Função Quantílica
+`$$Q_Y(\tau)=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-(1-\tau)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}^{-\frac{1}{\delta}}, \mbox{ onde }           \quad \tau \in (0,1).$$`
 
-`$$+ \frac{\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{d}\right]^{c-1}}{{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{d}\right]^{c}\right\}^{1-\lambda}}} \quad  y &gt; 0$$`
+## Função densidade de probabilidade
+`$$f_Y(y)= \frac{\alpha\sigma\lambda\delta\eta\gamma\left(1+\alpha y^{-\delta}\right)^{-\sigma-1}\left[1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right]^{\gamma-1}}{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{1-\lambda}}$$`
+
+`$$+ \frac{[1-(1-(1+\alpha y^{-\delta})^{-\sigma})^{\gamma}]^{\eta-1}}{{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{1-\lambda}}} \quad  y &gt; 0$$`
 --
 
 ## Não há fórmula fechada para a média e variância
@@ -177,7 +222,7 @@ A função de ligação é `\(g({\mu_t})=\log({\mu_t})\)`, então temos:
 onde:
 
 
-`$$\phi(L)=-\sum_{j=0}^{p}\phi_jz^j,\quad \theta(L)=-\sum_{j=0}^{q}\theta_jz^j,\quad \forall \quad z\in\C,$$`
+`$$\phi(L)=-\sum_{j=0}^{p}\phi_jz^j,\quad \theta(L)=-\sum_{j=0}^{q}\theta_jz^j$$`
 ---
 &lt;iframe src="https://vitorpereira.shinyapps.io/Aqui/?showcase=0" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
 
