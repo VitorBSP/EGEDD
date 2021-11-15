@@ -142,7 +142,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 
 /* Add image and change bg color */
 .title-slide {
-  background-image: url(imagens/logo_MA_color.png);
+  background-image: url(imagens/Dagum.png);
   background-position: 50% 15%;
   background-size: 250px;
   background-color: #fff;
