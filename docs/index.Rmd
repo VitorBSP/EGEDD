@@ -12,6 +12,8 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+header-includes:
+   - \usepackage[bm]
 ---
 layout: true
   
@@ -219,7 +221,7 @@ class: middle
 
 # Modelo de Séries Temporais Com Regressão
 Incluindo a estrutura de regressão pelo quantil, por:
-$$g(\mu_t)={x}_t^{\top}{\beta}=\sum_{j=1}^{k}{x}_{tj}{\beta}=\eta_t, \quad t=1, \ldots, n,$$
+$$g(\mu_t)={x}_t^{\top}{\boldsymbol{\beta}}=\sum_{j=1}^{k}{x}_{tj}{\boldsymbol{\beta}}=\eta_t, \quad t=1, \ldots, n,$$
 $$com\quad {\beta}=(\beta_1, \ldots, \beta_k)^{\top}$$
 --
 
