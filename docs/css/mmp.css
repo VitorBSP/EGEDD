@@ -142,8 +142,8 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 
 /* Add image and change bg color */
 .title-slide {
-  background-image: url(imagens/Dagum.png);
-  background-position: 50% 15%;
+  background-image: url(imagens/jai.png), url(imagens/ufsm.png);
+  background-position: 27.5% 15%, 75% 10%;
   background-size: 250px;
   background-color: #fff;
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */

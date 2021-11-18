@@ -46,8 +46,10 @@ library(interactingan)
 
 - Para modelagem de média, geralmente se utiliza, a **Regressão Linear Normal** ou **Modelos Lineares Generalizados**; 
 - Na prática, alguns dados não se adequam a essas distribuições, então nos últimos anos vêm sendo propostos **modelos alternativos**;
+
 ---
 class: middle
+
 # Motivação
 
 - Nos novos modelos, tem-se uma reparametrização em termos da média ou mediana, para possibilitara interpretação dos parâmetros em termos de medidas de posição ou precisão; 
@@ -102,6 +104,7 @@ $$+ \frac{[1-(1-(1+\alpha y^{-\delta})^{-\sigma})^{\gamma}]^{\eta-1}}{y^{\delta+
 ## Não há fórmula fechada para a média e variância
 
 ---
+
 class: middle
 # Submodelos da EGEDD
 
@@ -277,6 +280,7 @@ class: middle
 ---
 ```{r}
 knitr::include_app("https://vitorpereira.shinyapps.io/Aqui/")
+#build_pdf("docs/index.html", complex_slides = TRUE, partial_slides = TRUE)
 ```
 
 
