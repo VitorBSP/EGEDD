@@ -248,12 +248,12 @@ $$\phi(B)(g(y_t) -\boldsymbol{x}_t^{\top}{\boldsymbol\beta}) = \theta    (B)\eps
 sendo: 
 
 $$\phi(z)=-\sum_{i=0}^{p}\phi_iz^i,\quad \theta(z)=-\sum_{j=0}^{q}\theta_iz^i$$
-onde $L$ é operador $\textit{backward}$, $\phi_0 = -1 = \theta_0$ e assumimos que $\phi(\cdot)$ e $\alpha(\cdot)$ não possuem raízes em comum e $\epsilon_t$ é um erro aleatório. 
+onde $B$ é operador $\textit{backward}$, $\phi_0 = -1 = \theta_0$ e assumimos que $\phi(\cdot)$ e $\theta(\cdot)$ não possuem raízes em comum e $\epsilon_t$ é um erro aleatório. 
 
 ---
 class: middle
 
-# Modelo final ARMA:
+# Modelo final DAGUM ARMA:
 
 $$g(\mu_t) = {x}_t^{\top}{\beta} + \sum _{j=1}^n\phi_j(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) + \phi(B)\epsilon_t$$
 
@@ -298,7 +298,7 @@ class: middle
 class: full-slide-fig
 ```{r}
 knitr::include_app("https://vitorpereira.shinyapps.io/EGEDD_FDP/", height = '700px')
-#library(xaringanbuilder)
+#library(xaringanBuilder)
 #build_pdf("docs/index.html", complex_slides = TRUE, partial_slides = TRUE)
 ```
 
