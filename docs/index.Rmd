@@ -260,18 +260,18 @@ $$g(\mu_t) = {x}_t^{\top}{\beta} + \sum _{j=1}^n\phi_j(g(\mu_t) -{x}_t^{\top}{\b
 ---
 class: middle
 # Estimador de Máxima Verossimilhança
-A estimação do vetor de parâmetros $\boldsymbol{\theta}$ através do método da máxima verossimilhança, denotado por EMV, é dado por
+A estimação do vetor de parâmetros $\boldsymbol{\Theta}$ através do método da máxima verossimilhança, denotado por EMV, é dado por
  
-$$\widehat{\boldsymbol{\theta}}=argmax_{{\boldsymbol{\theta}}\in \Theta}\{\ell(\boldsymbol{\theta})\}$$
+$$\widehat{\boldsymbol{\Theta}}=argmax_{{\boldsymbol{\Theta}}\in \Theta}\{\ell(\boldsymbol{\Theta})\}$$
 --
 
-em que $\boldsymbol{\Theta}\subseteq \{\mathbb{R}_+^5\times \mathbb{R}^{k+1+p+q}\}$ é o espaço de parâmetros e $\ell(\boldsymbol{\theta})$ é a função de log-verossimilhança de $\boldsymbol{y}$ é dada por
-$$\ell(\boldsymbol{\theta})=\ell(\boldsymbol{\theta};\boldsymbol{y})=\sum_{t=1}^{n}\ell_t(\boldsymbol{\theta},{{y_t}}),$$
+em que $\boldsymbol{\Omega}\subseteq \{\mathbb{R}_+^5\times \mathbb{R}^{k+1+p+q}\}$ é o espaço de parâmetros e $\ell(\boldsymbol{\Theta})$ é a função de log-verossimilhança de $\boldsymbol{y}$ é dada por
+$$\ell(\boldsymbol{\Theta})=\ell(\boldsymbol{\Theta};\boldsymbol{y})=\sum_{t=1}^{n}\ell_t(\boldsymbol{\Theta},{{y_t}}),$$
 
 --
 
 em que
-$$\ell_t(\boldsymbol{\theta},y_t) = \log(\alpha\delta\sigma\gamma\eta\lambda)-(\delta+1)\log(y_t)-(\sigma+1)\log(z_t)$$
+$$\ell_t(\boldsymbol{\Theta},y_t) = \log(\alpha\delta\sigma\gamma\eta\lambda)-(\delta+1)\log(y_t)-(\sigma+1)\log(z_t)$$
 $$+(\gamma-1)\log\left(1-z_t^{-\sigma}\right)+(\eta-1)\log\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]$$
 $$+(\lambda-1)\log\left\{1-\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]^\eta\right\},$$
 ---
@@ -279,7 +279,7 @@ class: middle
 # Estimador de Máxima Verossimilhança
 
 Considerando a reparametrização por $\delta$, o vetor de parâmetros do modelo é dado por: 
-$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\boldsymbol{\beta}^\top,\boldsymbol{\phi}^\top, \boldsymbol{\theta}^\top)^\top$$
+$$\boldsymbol{\Theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\boldsymbol{\beta}^\top,\boldsymbol{\phi}^\top, \boldsymbol{\theta}^\top)^\top$$
 
 ---
 class: middle
