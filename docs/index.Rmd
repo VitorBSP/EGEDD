@@ -1,7 +1,7 @@
 ---
 title: "Modelos para Séries Temporais com Base na EGEDD"
 subtitle: "Distribuição Dagum Exponencial Generalizada Exponencializada"
-author: "Vítor Bernardo Silveira Pereira"
+author: "Apresentador: Vítor Bernardo Silveira Pereira <br> Orientador: Cleber Bisognin <br> Coorientadora: Laís Helen Loose"
 encoding: "UTF-8"
 output:
   xaringan::moon_reader:
