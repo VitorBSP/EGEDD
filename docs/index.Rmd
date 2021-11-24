@@ -309,7 +309,7 @@ class: middle
 ---
 class: full-slide-fig
 ```{r}
-knitr::include_app("https://vitorpereira.shinyapps.io/EGEDD_FDP/", height = '600px')
+knitr::include_app("https://vitorpereira.shinyapps.io/EGEDD_FDP/", height = '700px')
 #library(xaringanbuilder)
 #build_pdf("docs/index.html", complex_slides = TRUE, partial_slides = TRUE)
 ```
