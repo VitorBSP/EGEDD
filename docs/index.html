@@ -82,16 +82,16 @@ class: middle
 
 
 ## Função de distribuição acumulada
-`$$F_Y(y)=1-\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{\lambda}, \quad y &gt; 0$$`
+`$$F_Y(y)=1-\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{\lambda}, \quad y &gt; 0,$$`
 
 
 --
 
-## onde os paramêtros
+## onde os paramêtros são
 
 `$$\alpha,\sigma,\lambda,\delta,\eta,\gamma &gt; 0$$`
 
-Os parâmetros `\(\sigma,\lambda,\delta,\eta,\gamma\)` são parâmetros de forma e o parâmetro `\(\alpha\)` é de escala.
+Os parâmetros `\(\sigma,\lambda,\delta,\eta,\gamma\)` são parâmetros de forma e  `\(\alpha\)` é parâmetro de escala.
 
 ---
 class: middle
@@ -115,7 +115,7 @@ class: middle
 ## Reparametrização por &amp;delta;
 `$$\delta=-\frac{1}{\log(\mu)}\log\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}$$`
 
-
+Em que `\(\mu_t\)` é o quantil, também utilizamos a reparametrização por `\(\alpha\)`, queremos testar juntamente com a reparametrização por `\(\delta\)`, o viés, consistência e normalidade assintótica dos estimadores, para verificar qual reparametrização seria melhor.
 ---
 
 class: middle
@@ -209,7 +209,7 @@ class: middle
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-Notamos que existes parâmetros melhores para fazer as reparametrizações, sem perder a generalidade da EGED como o `\(\delta\)`.
+Notamos que existes parâmetros melhores para fazer as reparametrizações, sem perder a generalidade da EGEDD como o `\(\delta\)`.
 
 ---
 class: middle
@@ -218,48 +218,40 @@ class: middle
 # Regressão Dagum
 Incluindo a estrutura de regressão pelo quantil, por:
 `$$g(\mu_t)={x}_t^{\top}{\boldsymbol{\beta}}=\sum_{j=1}^{k}{x}_{tj}{\boldsymbol{\beta}}, \quad t=1, \ldots, n,$$`
-`$$com\quad {\boldsymbol\beta}=(\beta_1, \ldots, \beta_k)^{\top}$$`
+em que `\(\quad {\boldsymbol\beta}=(\beta_1, \ldots, \beta_k)^{\top}\)` é o vetor de parâmetros desconhecidos e `\(\boldsymbol{\beta}\in\mathbb{R}^{k}\)` e `\(\boldsymbol{x}_{t} = ({x_{t1}},\cdots, {x_{tk}})^\top\)` são observações de `\(k\)` covariáveis `\(k&lt;n\)`, as quais são supostamente fixas e conhecidas. Caso o intercepto `\(\beta_0\)` seja incluído no modelo, temos que `\(x_{t1}=1\)`, para todo `\(t=1,\ldots, n\)`
 --
 
 ## Função de ligação
 Necessita ser contínua e duas vezes diferenciável, logo a nossa função de ligação é `\(g({\mu_t})=\log({\mu_t})\)`.
 
 Assim, ficaremos com o vetor de parâmetros (com a reparametrização por `\(\delta)\)`, sendo:
-`$${\boldsymbol\theta}=(\alpha,\sigma,\lambda,\eta,\gamma,{\boldsymbol\beta^{\top}})^{\top}$$` 
-Em que `\(\mu_t\)` é o quantil da observação `\(y_t\)` no tempo `\(t\)`.
+`$${\boldsymbol\Theta}=(\alpha,\sigma,\lambda,\eta,\gamma,{\boldsymbol\beta^{\top}})^{\top},$$` 
+em que `\(\mu_t\)` é o quantil da observação `\(y_t\)` no tempo `\(t\)`.
 ---
 class: middle
 
 # Modelo DARMA(p,q)
 
-Modelo geral para `\(\mu_t\)`:
+Consideramos o quantil condicional com a adição de uma componente adicional, `\(\varepsilon_t\)`, na qual é um modelo ARMA(p,q). Assim, um modelo mais geral para `\(\mu_t\)`:
 
 $$g(\mu_t) = {x}_t^{\top}{\boldsymbol\beta} + u_t $$
-Sabendo que pela estrutura ARMA temos uma relação que inclui o componente `\(u_t\)`:
-`$$u_t = \frac{\phi(B)}{\theta(B)}\epsilon_t$$`
+
 --
-Ficando:
+onde `\({\boldsymbol\beta}=(\beta_1, \ldots, \beta_k)^{\top}\)` é o vetor de parâmetros desconhecidos e `\(u_t = g(y_t) - \boldsymbol{x_t}^\top\boldsymbol{\beta}\)` possui estrutura ARMA (p,q), ou seja, 
 
-`$$g(\mu_t) = {x}_t^{\top}{\boldsymbol\beta} + \frac{\phi(B)}{\theta(B)}\epsilon_t$$`
+`$$\phi(B)(g(y_t) -\boldsymbol{x}_t^{\top}{\boldsymbol\beta}) = \theta    (B)\epsilon_t$$`
+--
 
-onde: 
-
+sendo: 
 
 `$$\phi(z)=-\sum_{i=0}^{p}\phi_iz^i,\quad \theta(z)=-\sum_{j=0}^{q}\theta_iz^i$$`
+onde `\(L\)` é operador `\(\textit{backward}\)`, `\(\phi_0 = -1 = \theta_0\)` e assumimos que `\(\phi(\cdot)\)` e `\(\alpha(\cdot)\)` não possuem raízes em comum e `\(\epsilon_t\)` é um erro aleatório. 
 
 ---
 class: middle
 
-Desenvolvendo um pouco algebricamente, conseguimos:
-`$$\phi(B)(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) = \phi(B)\epsilon_t$$`
+# Modelo final ARMA:
 
-`$$\left(1\:-\:\phi _1B \:-\:\phi _2B ^2,\:\ldots ,\:\phi _pB ^p\:\right)\left(g\left(\mu _t\right)\:-x_t^{\top } \right)\:=\:\phi \left(B\right)\epsilon _t$$`
---
-
-
-Até chegar no:
-
-## Modelo final ARMA:
 `$$g(\mu_t) = {x}_t^{\top}{\beta} + \sum _{j=1}^n\phi_j(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) + \phi(B)\epsilon_t$$`
 
 ---
@@ -270,7 +262,7 @@ A estimação do vetor de parâmetros `\(\boldsymbol{\theta}\)` através do mét
 `$$\widehat{\boldsymbol{\theta}}=argmax_{{\boldsymbol{\theta}}\in \Theta}\{\ell(\boldsymbol{\theta})\}$$`
 --
 
-em que `\(\boldsymbol{\Theta}\subseteq \{\mathbb{R}_+^5\times \mathbb{R}^{k+1}\}\)` é o espaço de parâmetros e `\(\ell(\boldsymbol{\theta})\)` é a função de log-verossimilhança de `\(\boldsymbol{y}\)` é dada por
+em que `\(\boldsymbol{\Theta}\subseteq \{\mathbb{R}_+^5\times \mathbb{R}^{k+1+p+q}\}\)` é o espaço de parâmetros e `\(\ell(\boldsymbol{\theta})\)` é a função de log-verossimilhança de `\(\boldsymbol{y}\)` é dada por
 `$$\ell(\boldsymbol{\theta})=\ell(\boldsymbol{\theta};\boldsymbol{y})=\sum_{t=1}^{n}\ell_t(\boldsymbol{\theta},{{y_t}}),$$`
 
 --
@@ -283,12 +275,8 @@ em que
 class: middle
 # Estimador de Máxima Verossimilhança
 
-Considerando a reparametrização por `\(\delta:\)`
-
-`$$\delta=-\frac{1}{\log(\mu_t)}\log\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\},$$`
-
-o vetor de parâmetros do modelo proposto é dado por
-`$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\boldsymbol{\beta}^\top)^\top$$`
+Considerando a reparametrização por `\(\delta\)`, o vetor de parâmetros do modelo é dado por: 
+`$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\boldsymbol{\beta}^\top,\boldsymbol{\phi}^\top, \boldsymbol{\theta}^\top)^\top$$`
 
 ---
 class: middle
