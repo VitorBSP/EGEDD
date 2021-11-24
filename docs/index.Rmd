@@ -280,7 +280,7 @@ $$g(\mu_t) = \sum _{p=1}^n\phi_p(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) + \ph
 class: middle
 # Estimação dos parâmetos
 
-- A estimação dos parâmetros será realizada através de Estimadores de Máxima Verossimilhança (EMV) e a máxima $L_q$-verossimilhança (M$L_q$E), com o vetor de parâmetros:
+- A estimação dos parâmetros será realizada através de Estimadores de Máxima Verossimilhança (EMV) e a máxima $L_q$-verossimilhança $(ML_qE)$, com o vetor de parâmetros:
 
 $$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\delta)$$
 --
@@ -294,7 +294,7 @@ class: middle
 # Estimação dos parâmetos
 
 ## Estimador
- - Para encontramos o EMV, só precisamos derivar a função em relação ao parâmetro e igualar a zero, porém em algumas derivadas, temos dificuldade algébrica igualar a zero, então usamos métodos numéricos, como a derivada a baixo:
+ - Para encontramos o EMV, só precisamos derivar $\ell_t(\boldsymbol{\theta},y_t)$ e iguala-la a zero, no nosso caso teremos dificuldades algébrica, então usaremos métodos computacionais, como a derivada a baixo:
  
 $$\frac{\partial l}{\partial \sigma } = \frac{n}{\sigma} - \sum_{i=0}^{n}log(z_i) + (\gamma - 1)\sum_{i=0}^{n}\frac{z_i^{-\sigma}log(z_i)}{1-z_i^{-\sigma}}$$
 $$- (\eta - 1)\sum_{i=0}^{n}\frac{\gamma{z_i}^{-\sigma}(1-z_i^{-\sigma})^{\gamma - 1}log(z_i)}{1 - (1-z_i^{-\sigma})^{\gamma}}$$
