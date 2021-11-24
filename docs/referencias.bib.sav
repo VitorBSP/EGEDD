@@ -1,0 +1,555 @@
+% Encoding: windows-1252
+
+
+@Conference{Abensur2007,
+  Title                    = {Impactos Do Programa Bolsa Família Nos Resultados Das Eleições Presidenciais No {B}rasil Em 2006},
+  Author                   = {Abensur, T. C. and Cribari-Neto, F. and Menezes, T. A.},
+  Booktitle                = {Anais do XXXV Encontro Nacional de Economia},
+  Year                     = {2007},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.13}
+}
+
+@Article{akaike1974,
+  Title                    = {A new look at the statistical model identification},
+  Author                   = {Akaike, Hirotugu},
+  Journal                  = {Automatic Control, IEEE Transactions on},
+  Year                     = {1974},
+  Number                   = {6},
+  Pages                    = {716--723},
+  Volume                   = {19},
+
+  Publisher                = {Ieee}
+}
+
+@Article{bayer2015,
+  Title                    = {RELATIVE AIR HUMIDITY FORECASTING THROUGH BETA AUTOREGRESSIVE MOVING AVERAGE MODEL IN {B}RAS{\'I}LIA},
+  Author                   = {Bayer, D{\'E}BORA MISSIO and Bayer, F{\'A}BIO},
+  Journal                  = {Revista Brasileira de Meteorologia},
+  Year                     = {2015},
+  Number                   = {3},
+  Pages                    = {319--326},
+  Volume                   = {30},
+
+  Publisher                = {SciELO Brasil}
+}
+
+@Article{Bayer2012,
+  Title                    = {Bartlett corrections in beta regression models.},
+  Author                   = {Bayer, F.M. and Cribari-Neto, F.},
+  Journal                  = {Journal of Statistical Planning and Inference},
+  Year                     = {2012},
+
+  Doi                      = {http://dx.doi.org/10.1016/j.jspi.2012.08.018},
+  Owner                    = {LAIS},
+  Timestamp                = {2012.10.30}
+}
+
+@PhdThesis{Bayer2011,
+  Title                    = {Modelagem e Inferência em regressão beta},
+  Author                   = {Bayer, F. M.},
+  School                   = {Universidade Federal de Pernambuco},
+  Year                     = {2011},
+
+  Owner                    = {fabiobayer},
+  Timestamp                = {2012.03.14}
+}
+
+@Book{box2015,
+  Title                    = {Time series analysis: forecasting and control},
+  Author                   = {Box, George EP and Jenkins, Gwilym M and Reinsel, Gregory C and Ljung, Greta M},
+  Publisher                = {John Wiley \& Sons},
+  Year                     = {2015}
+}
+
+@Article{brown1981,
+  Title                    = {Variation diminishing transformations: a direct approach to total positivity and its statistical applications},
+  Author                   = {Brown, Lawrence D and Johnstone, Iain M and MacGibbon, K Brenda},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1981},
+  Number                   = {376},
+  Pages                    = {824--832},
+  Volume                   = {76},
+
+  Publisher                = {Taylor \& Francis}
+}
+
+@Book{casella2002342,
+  Title                    = {Statistical {I}nference},
+  Author                   = {Casella, George and Berger, Roger L},
+  Publisher                = {Duxbury Pacific Grove, CA},
+  Year                     = {2002, p. 342},
+  Volume                   = {2}
+}
+
+@Book{Casella2002,
+  author    = {Casella, George and Berger, Roger L},
+  title     = {Statistical {I}nference},
+  publisher = {Duxbury Pacific Grove, CA},
+  volume    = {2},
+  year      = {2002},
+}
+
+@Book{casella2002,
+  author    = {Casella, George and Berger, Roger L},
+  title     = {Statistical {I}nference},
+  publisher = {Duxbury Pacific Grove, CA},
+  volume    = {2},
+  year      = {2002},
+}
+
+@Article{Cribari2010,
+  Title                    = {Beta Regression in {R}},
+  Author                   = {Cribari-Neto, F. and Zeileis, A.},
+  Journal                  = {Journal of Statistical Software},
+  Year                     = {2010},
+  Number                   = {2},
+  Volume                   = {34},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.06.25}
+}
+
+@Article{dugas2012,
+  Title                    = {Google Flu Trends: correlation with emergency department influenza rates and crowding metrics},
+  Author                   = {Dugas, Andrea Freyer and Hsieh, Yu-Hsiang and Levin, Scott R and Pines, Jesse M and Mareiniss, Darren P and Mohareb, Amir and Gaydos, Charlotte A and Perl, Trish M and Rothman, Richard E},
+  Journal                  = {Clinical infectious diseases},
+  Year                     = {2012},
+  Number                   = {4},
+  Pages                    = {463--469},
+  Volume                   = {54},
+
+  Publisher                = {Oxford University Press}
+}
+
+@Article{Efron1979,
+  Title                    = {Bootstrap Methods: Another Look at the Jackknife},
+  Author                   = {Efron, B.},
+  Journal                  = {The Annals of Statistics},
+  Year                     = {1979},
+  Pages                    = {1-26},
+  Volume                   = {7},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2013.06.09}
+}
+
+@Article{espinheira2008b,
+  Title                    = {On beta regression residuals},
+  Author                   = {Espinheira, P.L. and Ferrari, S. L. P. and Cribari-Neto, F.},
+  Journal                  = {Journal of Applied Statistics},
+  Year                     = {2008},
+  Pages                    = {407-419},
+  Volume                   = {35},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.21}
+}
+
+@Article{espinheira2008,
+  Title                    = {Influence Diagnostics in Beta Regression},
+  Author                   = {Espinheira, P. L. and Ferrari, S. L. P. and Cribari-Neto, F.},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2008},
+  Pages                    = {4417-4431},
+  Volume                   = {52},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.21}
+}
+
+@Article{Ferrari2004,
+  Title                    = {Beta regression for modelling rates and proportions},
+  Author                   = {Ferrari, S. L. P. and Cribari-Neto, F.},
+  Journal                  = {Journal of Applied Statistics},
+  Year                     = {2004},
+  Number                   = {7},
+  Pages                    = {799-815},
+  Volume                   = {31}
+}
+
+@Article{Pinheiro2011,
+  Title                    = {Improved likelihood inference in beta regression},
+  Author                   = {Ferrari, S. L. P. and Pinheiro, E. C.},
+  Journal                  = {Journal of Statistical Computation and Simulation},
+  Year                     = {2011},
+  Number                   = {4},
+  Pages                    = {431-443},
+  Volume                   = {81},
+
+  Owner                    = {fabiobayer},
+  Timestamp                = {2012.06.12}
+}
+
+@Article{finkelman2007,
+  Title                    = {Global patterns in seasonal activity of influenza {A/H3N2}, {A/H1N1} and {B} from 1997 to 2005: viral coexistence and latitudinal gradients},
+  Author                   = {Finkelman, Brian S and Viboud, C{\'e}cile and Koelle, Katia and Ferrari, Matthew J and Bharti, Nita and Grenfell, Bryan T},
+  Journal                  = {PloS one},
+  Year                     = {2007},
+  Number                   = {12},
+  Pages                    = {e1296},
+  Volume                   = {2},
+
+  Publisher                = {Public Library of Science}
+}
+
+@Article{ginsberg2009,
+  Title                    = {Detecting influenza epidemics using search engine query data},
+  Author                   = {Ginsberg, Jeremy and Mohebbi, Matthew H and Patel, Rajan S and Brammer, Lynnette and Smolinski, Mark S and Brilliant, Larry},
+  Journal                  = {Nature},
+  Year                     = {2009},
+  Number                   = {7232},
+  Pages                    = {1012--1014},
+  Volume                   = {457}
+}
+
+@Article{guolo2014,
+  Title                    = {Beta regression for time series analysis of bounded data, with application to {C}anada {G}oogle{\textregistered} {F}lu {T}rends},
+  Author                   = {Guolo, Annamaria and Varin, Cristiano and others},
+  Journal                  = {The Annals of Applied Statistics},
+  Year                     = {2014},
+  Number                   = {1},
+  Pages                    = {74--88},
+  Volume                   = {8}
+}
+
+@Article{hancox2010,
+  Title                    = {Evening up the score: Sexual selection favours both alternatives in the colour-polymorphic ornate rainbowfish},
+  Author                   = {Hancox, D. and Hoskin, C. J. and Wilson, R. S.},
+  Journal                  = {Animal Behaviour},
+  Year                     = {2010},
+  Pages                    = {845-851},
+  Volume                   = {80},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.09.03}
+}
+
+@Article{hodges1954,
+  Title                    = {Testing the approximate validity of statistical hypotheses},
+  Author                   = {Hodges Jr, JL and Lehmann, EL},
+  Journal                  = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  Year                     = {1954},
+  Pages                    = {261--268},
+
+  Publisher                = {JSTOR}
+}
+
+@Book{johnson1992,
+  Title                    = {Univariate Distributions},
+  Author                   = {Johnson, Norman L and Kotz, Samuel and Kemp, AW},
+  Publisher                = {New York, John Wiley},
+  Year                     = {1992}
+}
+
+@Book{lehmann2006p62,
+  Title                    = {Testing statistical hypotheses},
+  Author                   = {Lehmann, Erich L and Romano, Joseph P},
+  Publisher                = {Springer Science \& Business Media},
+  Year                     = {2006, p.60-61}
+}
+
+@Book{lehmann2006p56,
+  Title                    = {Testing statistical hypotheses},
+  Author                   = {Lehmann, Erich L and Romano, Joseph P},
+  Publisher                = {Springer Science \& Business Media},
+  Year                     = {2006, p.56}
+}
+
+@Book{lehmann2006,
+  Title                    = {Testing {S}tatistical {H}ypotheses},
+  Author                   = {Lehmann, Erich L and Romano, Joseph P},
+  Publisher                = {Springer Science \& Business Media},
+  Year                     = {2006}
+}
+
+@Article{Lemonte2006,
+  Title                    = {Estimação pontual e intervalar no modelo logístico hierárquico de dois níveis},
+  Author                   = {Lemonte, J. and Silva, T. F. N. M.},
+  Journal                  = {Revista de Matemática e Estatística},
+  Year                     = {2006},
+  Number                   = {2},
+  Volume                   = {24},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.06.25}
+}
+
+@Article{ljung1978,
+  Title                    = {On a measure of lack of fit in time series models},
+  Author                   = {Ljung, Greta M and Box, George EP},
+  Journal                  = {Biometrika},
+  Year                     = {1978},
+  Number                   = {2},
+  Pages                    = {297--303},
+  Volume                   = {65},
+
+  Publisher                = {Biometrika Trust}
+}
+
+@Article{lais2012,
+  Title                    = {Avaliação dos estimadores do modelo de regressão beta com dispersão variável: um estudo de simulação},
+  Author                   = {Loose, L. H. and Palm, B. G. and Bayer, F. M.},
+  Journal                  = {Matemática e Estatística em Foco},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2013.06.09}
+}
+
+@Book{McCullagh1989,
+  Title                    = {Generalized linear models},
+  Author                   = {McCullagh, P. and Nelder, J.A.},
+  Publisher                = {Chapman and Hall},
+  Year                     = {1989},
+  Edition                  = {2nd}
+}
+
+@Book{mood1974,
+  Title                    = {Introduction to the {T}heory of {S}tatistics},
+  Author                   = {Mood, A. and Graybill, F. and Boes, D.},
+  Publisher                = {McGraw-Hill, New York, NY},
+  Year                     = {1974}
+}
+
+@Book{morettin2006,
+  Title                    = {An{\'a}lise de s{\'e}ries temporais},
+  Author                   = {Morettin, Pedro A and Toloi, Cl{\'e}lia},
+  Publisher                = {Associação Brasileira de Estatística},
+  Year                     = {2006}
+}
+
+@Conference{marcos,
+  Title                    = {Inferência em um modelo de Regressão Beta: resultados numéricos},
+  Author                   = {Oliveira, M. S. and Ferrari, S. L. P.},
+  Booktitle                = {49 Reunião da RBRAS},
+  Year                     = {2004},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.06.18}
+}
+
+@Article{Ospina2006,
+  Title                    = {Improved point and intervalar estimation for a beta regression model},
+  Author                   = {Ospina, R. and Cribari-Neto, F. and Vasconcellos, K. L. P.},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2006},
+  Pages                    = {960-981},
+  Volume                   = {51},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.11}
+}
+
+@Article{Ospina2012,
+  Title                    = {A general class of zero-or-one inflated beta regression models},
+  Author                   = {Ospina, R. and Ferrari, S. L. P.},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2012},
+  Pages                    = {1609-1623},
+  Volume                   = {56},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.11}
+}
+
+@Article{palm2015,
+  Title                    = {Compara{\c{c}}{\~a}o de diferentes modelagens para percentual de energia armazenada},
+  Author                   = {Palm, Bruna Gregory and Bayer, F{\'a}bio Mariano and Bayer, D{\'e}bora Missio},
+  Journal                  = {Revista Eletr{\^o}nica em Gest{\~a}o, Educa{\c{c}}{\~a}o e Tecnologia Ambiental},
+  Year                     = {2015},
+  Number                   = {3},
+  Pages                    = {1--12},
+  Volume                   = {19}
+}
+
+@Conference{Pereira2011,
+  Title                    = {Regressão Beta para modelagem do rendimento metalúrgico na reciclagem de alumínio},
+  Author                   = {Pereira, L. A. and Tavares, M.},
+  Booktitle                = {Anais da XII Escola de Modelos de Regressão},
+  Year                     = {2011},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.11}
+}
+
+@PhdThesis{pereira2010,
+  Title                    = {Regressão beta inflacionada: inferência e aplicações},
+  Author                   = {Pereira, T. L.},
+  School                   = {Universidade Federal de Pernambuco},
+  Year                     = {2010},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.21}
+}
+
+@Article{prass2012,
+  Title                    = {Comparison of forecasts of mean monthly water level in the {P}araguay {R}iver, {B}razil, from two fractionally differenced models},
+  Author                   = {Prass, Taiane S and Bravo, Juan Martin and Clarke, Robin T and Collischonn, Walter and Lopes, S{\'\i}lvia RC},
+  Journal                  = {Water Resources Research},
+  Year                     = {2012},
+  Number                   = {5},
+  Volume                   = {48},
+
+  Publisher                = {Wiley Online Library}
+}
+
+@Book{press,
+  Title                    = {Numerical recipes in {C}: {T}he art of scientific computing},
+  Author                   = {Press, W. and Teukolsky, S. and Vetterling, W. and Flannery, B.},
+  Editor                   = {2nd edition},
+  Publisher                = {Cambridge University Press},
+  Year                     = {1992},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.09.25}
+}
+
+@Manual{R2012,
+  Title                    = {R: A Language and Environment for Statistical Computing},
+
+  Address                  = {Vienna, Austria},
+  Author                   = {{R Development Core Team}},
+  Note                     = {{ISBN} 3-900051-07-0},
+  Organization             = {R Foundation for Statistical Computing},
+  Year                     = {2016},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.06.25}
+}
+
+@Article{rocha2009,
+  Title                    = {Beta autoregressive moving average models},
+  Author                   = {Rocha, Andr{\'e}a V and Cribari-Neto, Francisco},
+  Journal                  = {Test},
+  Year                     = {2009},
+  Number                   = {3},
+  Pages                    = {529--545},
+  Volume                   = {18},
+
+  Publisher                = {Springer}
+}
+
+@Article{royston1982,
+  Title                    = {An extension of {S}hapiro and {W}ilk's {W} test for normality to large samples},
+  Author                   = {Royston, JP},
+  Journal                  = {Journal of the Royal Statistical Society. Series C (Applied Statistics)},
+  Year                     = {1982},
+  Number                   = {2},
+  Pages                    = {115--124},
+  Volume                   = {32},
+
+  Publisher                = {JSTOR}
+}
+
+@Article{said1984,
+  Title                    = {Testing for unit roots in autoregressive-moving average models of unknown order},
+  Author                   = {Said, Said E and Dickey, David A},
+  Journal                  = {Biometrika},
+  Year                     = {1984},
+  Number                   = {3},
+  Pages                    = {599--607},
+  Volume                   = {71}
+}
+
+@Book{sen1994,
+  Title                    = {Large sample methods in statistics: an introduction with applications},
+  Author                   = {Sen, Pranab K and Singer, Julio M},
+  Publisher                = {CRC Press},
+  Year                     = {1994},
+  Volume                   = {25}
+}
+
+@Book{shao2003,
+  Title                    = {Mathematical Statistics},
+  Author                   = {Shao, J.},
+  Editor                   = {Springer},
+  Publisher                = {Springer Texts in Statistics},
+  Year                     = {2003},
+
+  Owner                    = {laisloose},
+  Timestamp                = {2016.11.01}
+}
+
+@Article{simas2010,
+  Title                    = {Improved estimators for a general class of beta regression models},
+  Author                   = {Simas, A. B. and Barreto-Souza, W. and Rocha A. V.},
+  Journal                  = {Computational Statistics \& Data Analysis},
+  Year                     = {2010},
+  Pages                    = {348-366},
+  Volume                   = {2},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.14}
+}
+
+@Article{smithson2006,
+  Title                    = {A better lemon squeezer? {M}aximum-likelihood regression with beta-distributed dependent variables},
+  Author                   = {Smithson, M. and Verkuilen, J.},
+  Journal                  = {Psychological Methods},
+  Year                     = {2006},
+  Number                   = {1},
+  Pages                    = {54-71},
+  Volume                   = {11},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.09.03}
+}
+
+@PhdThesis{Souza2011,
+  Title                    = {Ensaios sobre modelos de regressão com dispersão variável},
+  Author                   = {Souza, T. C.},
+  School                   = {Universidade Federal de Pernambuco},
+  Year                     = {2011},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.21}
+}
+
+@Conference{Souza2010,
+  Title                    = {Uma estimativa do impacto dos gastos com programas assistencias na eleição presidencial de 2006 no Brasil},
+  Author                   = {Souza, T. C. and Cribari-Neto, F.},
+  Booktitle                = {Anais do XIX Simpósio Nacional de Probabilidade e Estatística},
+  Year                     = {2010},
+  Pages                    = {1-24},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.08.11}
+}
+
+@Article{Zucco2008,
+  Title                    = {The president's "new" constituency: {L}ula and the pregmatic vote in {B}razil's 2006 presidential elections},
+  Author                   = {Zucco, C.},
+  Journal                  = {Journal of Latin American Studies},
+  Year                     = {2008},
+  Number                   = {1},
+  Pages                    = {29-49},
+  Volume                   = {40},
+
+  Owner                    = {LAIS},
+  Timestamp                = {2012.09.03}
+}
+
+@Periodical{portalsaude2016,
+  Title                    = {Informe Epidemiológico - Influenza: Monitoramento até a Semana Epidemiológica 18 de 2016},
+  Year                     = {2016},
+
+  Editor                   = {Secretaria de Vigilância em Saúde - Ministério da Saúde},
+  Organization             = {Ministério da Saúde},
+
+  Owner                    = {lais},
+  Timestamp                = {2016.05.21}
+}
+
+@Article{dagum1977modelo,
+  author    = {Dagum, Camilo},
+  title     = {El modelo log-log{\'\i}stico y la distribuci{\'o}n del ingreso en la Argentina},
+  number    = {176 (4},
+  pages     = {837--864},
+  volume    = {44},
+  journal   = {El Trimestre Econ{\'o}mico},
+  publisher = {JSTOR},
+  year      = {1977},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}

@@ -12,8 +12,6 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-header-includes:
-   - \usepackage[bm]
 ---
 layout: true
   
@@ -40,31 +38,41 @@ library(interactingan)
 ```
 # Motivação
 
-- A indentificação de uma **distribuição** apropropriada é muito importante para a **análise estatística**;
+- A identificação de uma **distribuição** apropropriada é muito importante para a **análise estatística**;
 - A distribuição Dagum, idealizada por Camilo Dagum, tem ganhado muita atenção na sua utilidade para modelagem de dados sobre a distribuição de renda e análise de confiabilidade.
 - Distribuições baseadas na Dagum:
   - Distribuição exponenciada **Kumaraswamy-Dagum** (Silva et al., 2015);
   - Distribuição **Dagum Exponencial Generalizada Exponencializada** proposta em (Nasiru et al., 2019);
   - **Gompertz Generalizada**, proposta por El-Gohary et al. (2013), entre outros...
---
-
-- Os modelos de **Regressão Linear Normal** e **Modelos Lineares Generalizados** possuem como pressuposto que a distribuição seja Normal ou pertença a família exponencial regular;
-
-- Na prática, existem dados que não se adequam a distribuição normal ou distribuições pertecentes a familia exponencial, então nos últimos anos vêm sendo propostos **modelos alternativos**;
-
 ---
 class: middle
 
 # Motivação
 
-- Nos novos modelos, tem-se uma reparametrização em termos da média ou quantil, para possibilitara interpretação dos parâmetros em termos de medidas de posição ou precisão; 
+- **Aplicações:**Principalmente na área da modelagem de dados de sobrevivência e em dados econômicos, como análise de confiabilidade, modelagem de renda pessoal e nacionais (micro e macroeconômico).    
 
-- Com a reparametrização, uma estrutura de regressão é incluída para **modelar a média ou o quantil**, assim tendo a mesma abordagem dos MLG'S;
+
+```{r message=FALSE, warning=FALSE, out.width="40%", cache = TRUE, fig.cap="<center><a href='https://es.wikipedia.org/wiki/Camilo_Dagum'><b>Augusto Dagum: </a> </b>Um dos maiores economistas e estatísticos latinos</center>"}
+knitr::include_graphics("css/imagens/Dagum.png")
+```
+
+---
+# Motivação
+
+- Os modelos de **Regressão Linear Normal** e **Modelos Lineares Generalizados** possuem como pressuposto que a distribuição seja Normal ou pertença a família exponencial regular;
+
+- Na prática, existem dados que não se adequam a distribuição normal ou distribuições pertecentes a familia exponencial, então nos últimos anos vêm sendo propostos **modelos alternativos**;
 
 --
+- Nos novos modelos, tem-se uma reparametrização em termos da média ou quantil, para possibilitara interpretação dos parâmetros em termos de medidas de posição ou precisão; 
 
 - Na **EGEDD**, no entanto, **não há forma fechada para média e variância**, desta forma reparametrizamos a distribuição em termos dos quantis;
 
+- Com a reparametrização, uma estrutura de regressão é incluída para **modelar a média ou o quantil**, assim tendo a mesma abordagem dos MLG'S;
+---
+class: middle
+
+# Motivação
 
 - Em Séries Temporais, uma das abordagens mais usuais é a metodologia Box e Jenkins, no entanto também estão surgindo modelos alternativos, denominados de **modelos dinâmicos**;
 
@@ -73,47 +81,43 @@ class: middle
 ---
 class: middle
 
-# Aplicações
-
-- Principalmente na área da modelagem de dados de sobrevivência e em dados econômicos, como análise de confiabilidade, modelagem de renda pessoal e nacionais (micro e macroeconômico).    
-
-
-```{r message=FALSE, warning=FALSE, out.width="40%", cache = TRUE, fig.cap="<center><a href='https://es.wikipedia.org/wiki/Camilo_Dagum'><b>Augusto Dagum: </a> </b>Um dos maiores economistas e estatísticos latinos</center>"}
-knitr::include_graphics("css/imagens/Dagum.png")
-```
-
----
-class: middle
-
-# Propriedades da EGED
+# Propriedades da EGEDD
 
 
 ## Função de distribuição acumulada
-$$F_Y(y)=1-\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{\lambda}$$
+$$F_Y(y)=1-\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{\lambda}, \quad y > 0$$
+
 
 --
 
-## Suporte
-$$y > 0$$
---
-
-## Paramêtros
+## onde os paramêtros
 
 $$\alpha,\sigma,\lambda,\delta,\eta,\gamma > 0$$
---
 
 Os parâmetros $\sigma,\lambda,\delta,\eta,\gamma$ são parâmetros de forma e o parâmetro $\alpha$ é de escala.
 
 ---
 class: middle
 
-## Função Quantílica
-$$Q_Y(\tau)=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-(1-\tau)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}^{-\frac{1}{\delta}}, \mbox{ onde }           \quad \tau \in (0,1).$$
-
 ## Função densidade de probabilidade
 $$f_Y(y)= \frac{\alpha\sigma\lambda\delta\eta\gamma\left(1+\alpha y^{-\delta}\right)^{-\sigma-1}\left[1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right]^{\gamma-1}}{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{1-\lambda}}$$
 
 $$*[1-(1-(1+\alpha y^{-\delta})^{-\sigma})^{\gamma}]^{\eta-1}$$
+
+## Função Quantílica
+$$Q_Y(\tau)=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-(1-\tau)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}^{-\frac{1}{\delta}}, \mbox{ onde }           \quad \tau \in (0,1).$$
+
+---
+class: middle
+
+# Reparametrizações
+$$\mu=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}^{-\frac{1}{\delta}}$$
+
+--
+
+## Reparametrização por &delta;
+$$\delta=-\frac{1}{\log(\mu)}\log\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}$$
+
 
 ---
 
@@ -213,33 +217,17 @@ Notamos que existes parâmetros melhores para fazer as reparametrizações, sem 
 ---
 class: middle
 
-# Reparametrizações
-$$\mu=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}^{-\frac{1}{\delta}}$$
-
---
-
-## Repametrização por &alpha;
-
-$$\alpha=\frac{1}{\mu^{-\delta}}\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-0,5^\frac{1}{\lambda}\right)^\frac{1}{c}\right)^{\frac{1}{d}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}.$$
---
-
-## Reparametrização por &delta;
-$$\delta=-\frac{1}{\log(\mu)}\log\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\}$$
----
-class: middle
-
 
 # Regressão Dagum
 Incluindo a estrutura de regressão pelo quantil, por:
-$$g(\mu_t)={x}_t^{\top}{\boldsymbol{\beta}}=\sum_{j=1}^{k}{x}_{tj}{\boldsymbol{\beta}}=\eta_t, \quad t=1, \ldots, n,$$
+$$g(\mu_t)={x}_t^{\top}{\boldsymbol{\beta}}=\sum_{j=1}^{k}{x}_{tj}{\boldsymbol{\beta}}, \quad t=1, \ldots, n,$$
 $$com\quad {\boldsymbol\beta}=(\beta_1, \ldots, \beta_k)^{\top}$$
 --
 
 ## Função de ligação
-Necessita ser contínua e duas vezes diferenciável, logo a nossa função de ligação é $g({\mu_t})=\log({\mu_t})$, então temos:
+Necessita ser contínua e duas vezes diferenciável, logo a nossa função de ligação é $g({\mu_t})=\log({\mu_t})$.
 
-$$\mu_t=\exp\left({x_t}^\top{\boldsymbol\beta}\right)=\exp(\eta_t)$$
-Assim, ficaremos com o vetor de parâmetros, sendo:
+Assim, ficaremos com o vetor de parâmetros (com a reparametrização por $\delta)$, sendo:
 $${\boldsymbol\theta}=(\alpha,\sigma,\lambda,\eta,\gamma,{\boldsymbol\beta^{\top}})^{\top}$$ 
 Em que $\mu_t$ é o quantil da observação $y_t$ no tempo $t$.
 ---
@@ -257,10 +245,10 @@ Ficando:
 
 $$g(\mu_t) = {x}_t^{\top}{\boldsymbol\beta} + \frac{\phi(B)}{\theta(B)}\epsilon_t$$
 
-Onde: 
+onde: 
 
 
-$$\phi(Z)=-\sum_{i=0}^{p}\phi_iz^i,\quad \theta(Z)=-\sum_{j=0}^{q}\theta_iz^i$$
+$$\phi(z)=-\sum_{i=0}^{p}\phi_iz^i,\quad \theta(z)=-\sum_{j=0}^{q}\theta_iz^i$$
 
 ---
 class: middle
@@ -275,12 +263,12 @@ $$\left(1\:-\:\phi _1B \:-\:\phi _2B ^2,\:\ldots ,\:\phi _pB ^p\:\right)\left(g\
 Até chegar no:
 
 ## Modelo final ARMA:
-$$g(\mu_t) = \sum _{p=1}^n\phi_p(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) + \phi(B)\epsilon_t + {x}_t^{\top}{\beta}$$
+$$g(\mu_t) = {x}_t^{\top}{\beta} + \sum _{j=1}^n\phi_j(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) + \phi(B)\epsilon_t$$
 ---
 class: middle
-# Estimação dos parâmetos
+# Estimação dos parâmetros
 
-- A estimação dos parâmetros será realizada através de Estimadores de Máxima Verossimilhança (EMV) e a máxima $L_q$-verossimilhança $(ML_qE)$, com o vetor de parâmetros:
+A estimação dos parâmetros será realizada através de Estimadores de Máxima Verossimilhança (EMV) e a máxima $L_q$-verossimilhança $(ML_qE)$, com o vetor de parâmetros:
 
 $$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\delta)$$
 --
@@ -291,25 +279,37 @@ $$\ell_t(\boldsymbol{\theta},y_t) = \log(\alpha\delta\sigma\gamma\eta\lambda)-(\
 $$+(\eta-1)\log\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]+(\lambda-1)\log\left\{1-\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]^\eta\right\}$$
 ---
 class: middle
-# Estimação dos parâmetos
-
-## Estimador
- - Para encontramos o EMV, só precisamos derivar $\ell_t(\boldsymbol{\theta},y_t)$ e iguala-la a zero, no nosso caso teremos dificuldades algébrica, então usaremos métodos computacionais, como a derivada a baixo:
+# Estimador de Máxima Verossimilhança
+A estimação do vetor de parâmetros $\boldsymbol{\theta}$ através do método da máxima verossimilhança, denotado por EMV, é dado por
  
-$$\frac{\partial l}{\partial \sigma } = \frac{n}{\sigma} - \sum_{i=0}^{n}log(z_i) + (\gamma - 1)\sum_{i=0}^{n}\frac{z_i^{-\sigma}log(z_i)}{1-z_i^{-\sigma}}$$
-$$- (\eta - 1)\sum_{i=0}^{n}\frac{\gamma{z_i}^{-\sigma}(1-z_i^{-\sigma})^{\gamma - 1}log(z_i)}{1 - (1-z_i^{-\sigma})^{\gamma}}$$
+$$\widehat{\boldsymbol{\theta}}=argmax_{{\boldsymbol{\theta}}\in \Theta}\{\ell(\boldsymbol{\theta})\}$$
+--
+
+em que $\boldsymbol{\Theta}\subseteq \{\mathbb{R}_+^5\times \mathbb{R}^{k+1}\}$ é o espaço de parâmetros e $\ell(\boldsymbol{\theta})$ é a função de log-verossimilhança de $\boldsymbol{y}$ é dada por
+$$\ell(\boldsymbol{\theta})=\ell(\boldsymbol{\theta};\boldsymbol{y})=\sum_{t=1}^{n}\ell_t(\boldsymbol{\theta},{{y_t}}),$$
 
 --
-## Reparametrização
- - Para colocar a estrutura de regressão, temos que utilizar a reparametrizão, por exemplo para $\delta$, assim o vetor de parâmetros fica:
 
-$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\boldsymbol{\beta}^\top).$$
+em que
+$$\ell_t(\boldsymbol{\theta},y_t) = log(\alpha\delta\sigma\gamma\eta\lambda)-(\delta+1)\log(y_t)-(\sigma+1)\log(z_t)$$
+$$+(\gamma-1)\log\left(1-z_t^{-\sigma}\right)+(\eta-1)\log\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]$$
+$$+(\lambda-1)\log\left\{1-\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]^\eta\right\},$$
+---
+class: middle
+# Estimador de Máxima Verossimilhança
+
+Considerando a reparametrização por $\delta:$
+
+$$\delta=-\frac{1}{\log(\mu_t)}\log\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-\left(1-\tau\right)^\frac{1}{\lambda}\right)^\frac{1}{\eta}\right)^{\frac{1}{\gamma}}\right)^{-\frac{1}{\sigma}}-1\right]\right\},$$
+
+o vetor de parâmetros do modelo proposto é dado por
+$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\boldsymbol{\beta}^\top)^\top$$
 
 ---
 class: middle
 
 # Outros Procedimentos Estatísticos:
-- Construção de testes de hipótese para verificar distribuição dos dados, verificando se é para a EGEDD ou um submodleo;
+- Construção de testes de hipótese para verificar distribuição dos dados, verificando se é para a EGEDD ou um submodelo;
 - Utilização de métodos númericos para execução de simulações (Newton-Rapson, Gosolnp com os métodos CG, BFGS e L-BFGS-B);
 - Utilização de Simulações de Monte Carlo para estimação de parâmetros e análise de diagnósticos dos modelos;
 - Desenvolvimento de Intervalos de Confiança e testes de hipóteses baseados na distribuição assintótica dos EMV's;
@@ -326,3 +326,15 @@ knitr::include_app("https://vitorpereira.shinyapps.io/EGEDD_FDP/", height = '600
 ```
 
 
+---
+# Referências Bibliográficas
+
+- Dagum, C. (1977). El modelo log-logístico y la distribución del ingreso en la
+argentina. El Trimestre Económico, 44(176 (4):837–864
+
+- Nasiru, S., Mwita, P. N., e Ngesa, O. (2019). Exponentiated generalized
+exponential dagum distribution. Journal of King Saud University-Science,
+31(3):362–371.
+
+- R Core Team (2021). R: A Language and Environment for Statistical Computing.
+R Foundation for Statistical Computing, Vienna, Austria
