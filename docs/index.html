@@ -52,10 +52,13 @@ class: middle
 # Motivação
 
 - Nos novos modelos, tem-se uma reparametrização em termos da média ou quantil, para possibilitara interpretação dos parâmetros em termos de medidas de posição ou precisão; 
+
 - Com a reparametrização, uma estrutura de regressão é incluída para **modelar a média ou o quantil**, assim tendo a mesma abordagem dos MLG'S;
-- Na **EGEDD**, no entanto, **não há forma fechada para média e variância**, desta forma reparametrizamos a distribuição em termos dos quantis;
 
 --
+
+- Na **EGEDD**, no entanto, **não há forma fechada para média e variância**, desta forma reparametrizamos a distribuição em termos dos quantis;
+
 
 - Em Séries Temporais, uma das abordagens mais usuais é a metodologia Box e Jenkins, no entanto também estão surgindo modelos alternativos, denominados de **modelos dinâmicos**;
 
@@ -257,7 +260,7 @@ Onde:
 ---
 class: middle
 
-Desenvolvendo um pouco algébricamente, conseguimos:
+Desenvolvendo um pouco algebricamente, conseguimos:
 `$$\phi(B)(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) = \phi(B)\epsilon_t$$`
 
 `$$\left(1\:-\:\phi _1B \:-\:\phi _2B ^2,\:\ldots ,\:\phi _pB ^p\:\right)\left(g\left(\mu _t\right)\:-x_t^{\top } \right)\:=\:\phi \left(B\right)\epsilon _t$$`
@@ -275,6 +278,7 @@ class: middle
 - A estimação dos parâmetros será realizada através de Estimadores de Máxima Verossimilhança (EMV) e a máxima `\(L_q\)`-verossimilhança (M$L_q$E), com o vetor de parâmetros:
 
 `$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\delta)$$`
+--
 
 ## Função de log-verossimilhança:
 
@@ -287,8 +291,10 @@ class: middle
 ## Estimador
  - Para encontramos o EMV, só precisamos derivar a função em relação ao parâmetro e igualar a zero, porém em algumas derivadas, temos dificuldade algébrica igualar a zero, então usamos métodos numéricos, como a derivada a baixo:
  
-`$$\frac{\partial l}{\partial \sigma } = \frac{n}{\sigma} - \sum_{i=0}^{n}log(z_i) + (\gamma - 1)\sum_{i=0}^{n}\frac{z_i^{-\sigma}log(z_i)}{1-z_i^{-\sigma}} - (\eta - 1)\sum_{i=0}^{n}\frac{{\gamma}z_i^{-\sigma}(1-z_i^{-\sigma})^{\gamma - 1}log(z_i)}{1 - (1-z_i^{-\sigma})^{\gamma}}$$`
+`$$\frac{\partial l}{\partial \sigma } = \frac{n}{\sigma} - \sum_{i=0}^{n}log(z_i) + (\gamma - 1)\sum_{i=0}^{n}\frac{z_i^{-\sigma}log(z_i)}{1-z_i^{-\sigma}}$$`
+`$$- (\eta - 1)\sum_{i=0}^{n}\frac{\gamma{z_i}^{-\sigma}(1-z_i^{-\sigma})^{\gamma - 1}log(z_i)}{1 - (1-z_i^{-\sigma})^{\gamma}}$$`
 
+--
 ## Reparametrização
  - Para colocar a estrutura de regressão, temos que utilizar a reparametrizão, por exemplo para `\(\delta\)`, assim o vetor de parâmetros fica:
 
@@ -308,7 +314,7 @@ class: middle
 
 
 ---
-&lt;iframe src="https://vitorpereira.shinyapps.io/Aqui/?showcase=0" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+&lt;iframe src="https://vitorpereira.shinyapps.io/EGEDD_FDP/?showcase=0" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
 
 
     </textarea>

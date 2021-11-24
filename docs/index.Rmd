@@ -284,6 +284,7 @@ class: middle
 
 $$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\delta)$$
 --
+
 ## Função de log-verossimilhança:
 
 $$\ell_t(\boldsymbol{\theta},y_t) = \log(\alpha\delta\sigma\gamma\eta\lambda)-(\delta+1)\log(y_t)-(\sigma+1)\log(z_t)+(\gamma-1)\log\left(1-z_t^{-\sigma}\right)$$
@@ -295,7 +296,8 @@ class: middle
 ## Estimador
  - Para encontramos o EMV, só precisamos derivar a função em relação ao parâmetro e igualar a zero, porém em algumas derivadas, temos dificuldade algébrica igualar a zero, então usamos métodos numéricos, como a derivada a baixo:
  
-$$\frac{\partial l}{\partial \sigma } = \frac{n}{\sigma} - \sum_{i=0}^{n}log(z_i) + (\gamma - 1)\sum_{i=0}^{n}\frac{z_i^{-\sigma}log(z_i)}{1-z_i^{-\sigma}} - (\eta - 1)\sum_{i=0}^{n}\frac{{\gamma}z_i^{-\sigma}(1-z_i^{-\sigma})^{\gamma - 1}log(z_i)}{1 - (1-z_i^{-\sigma})^{\gamma}}$$
+$$\frac{\partial l}{\partial \sigma } = \frac{n}{\sigma} - \sum_{i=0}^{n}log(z_i) + (\gamma - 1)\sum_{i=0}^{n}\frac{z_i^{-\sigma}log(z_i)}{1-z_i^{-\sigma}}$$
+$$- (\eta - 1)\sum_{i=0}^{n}\frac{\gamma{z_i}^{-\sigma}(1-z_i^{-\sigma})^{\gamma - 1}log(z_i)}{1 - (1-z_i^{-\sigma})^{\gamma}}$$
 
 --
 ## Reparametrização
