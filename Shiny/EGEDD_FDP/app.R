@@ -45,7 +45,7 @@ ui <- dashboardPage(
     dashboardBody(
 
         fluidRow(
-            box(plotlyOutput("plot2"), width = 300))))
+            box(plotlyOutput("plot2", height = '600px'), width = 300))))
 
 
 
