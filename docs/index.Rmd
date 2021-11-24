@@ -264,19 +264,7 @@ Até chegar no:
 
 ## Modelo final ARMA:
 $$g(\mu_t) = {x}_t^{\top}{\beta} + \sum _{j=1}^n\phi_j(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) + \phi(B)\epsilon_t$$
----
-class: middle
-# Estimação dos parâmetros
 
-A estimação dos parâmetros será realizada através de Estimadores de Máxima Verossimilhança (EMV) e a máxima $L_q$-verossimilhança $(ML_qE)$, com o vetor de parâmetros:
-
-$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\delta)$$
---
-
-## Função de log-verossimilhança:
-
-$$\ell_t(\boldsymbol{\theta},y_t) = \log(\alpha\delta\sigma\gamma\eta\lambda)-(\delta+1)\log(y_t)-(\sigma+1)\log(z_t)+(\gamma-1)\log\left(1-z_t^{-\sigma}\right)$$
-$$+(\eta-1)\log\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]+(\lambda-1)\log\left\{1-\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]^\eta\right\}$$
 ---
 class: middle
 # Estimador de Máxima Verossimilhança
