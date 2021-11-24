@@ -1,0 +1,13 @@
+name: EGEDD_FDP
+title: EGEDD_FDP
+username:
+account: vitorpereira
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5193176
+bundleId: 5286984
+url: https://vitorpereira.shinyapps.io/EGEDD_FDP/
+when: 1637715378.02875
+lastSyncTime: 1637715378.02875
+asMultiple: FALSE
+asStatic: FALSE

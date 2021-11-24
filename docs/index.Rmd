@@ -1,5 +1,5 @@
 ---
-title: "Regressão e Modelos para Séries Temporais com Base na EGEDD"
+title: "Modelos para Séries Temporais com Base na EGEDD"
 subtitle: "Distribuição Dagum Exponencial Generalizada Exponencializada"
 author: "Vítor Bernardo Silveira Pereira"
 encoding: "UTF-8"
@@ -21,6 +21,7 @@ layout: true
 
 <a>Vítor Bernardo Silveira Pereira</a> - Email: <a href="mailto:vitorpereira3115@gmail.com">vitorpereira3115@gmail.com</a>
 </span></div>
+
 ---
 class: middle
 ```{r setup, include=FALSE}
@@ -40,34 +41,46 @@ library(interactingan)
 # Motivação
 
 - A indentificação de uma **distribuição** apropropriada é muito importante para a **análise estatística**;
-- A distribuição Dagum, idealizada por Camilo Dagum, tem ganhado muita atenção na sua utilidade para modelagem da distribuição de renda e análise de confiabilidade:
+- A distribuição Dagum, idealizada por Camilo Dagum, tem ganhado muita atenção na sua utilidade para modelagem de dados sobre a distribuição de renda e análise de confiabilidade.
+- Distribuições baseadas na Dagum:
   - Distribuição exponenciada **Kumaraswamy-Dagum** (Silva et al., 2015);
   - Distribuição **Dagum Exponencial Generalizada Exponencializada** proposta em (Nasiru et al., 2019);
   - **Gompertz Generalizada**, proposta por El-Gohary et al. (2013), entre outros...
 --
 
-- Para modelagem de média, geralmente se utiliza, a **Regressão Linear Normal** ou **Modelos Lineares Generalizados**; 
-- Na prática, alguns dados não se adequam a essas distribuições, então nos últimos anos vêm sendo propostos **modelos alternativos**;
+- Os modelos de **Regressão Linear Normal** e **Modelos Lineares Generalizados** possuem como pressuposto que a distribuição seja Normal ou pertença a família exponencial regular;
+
+- Na prática, existem dados que não se adequam a distribuição normal ou distribuições pertecentes a familia exponencial, então nos últimos anos vêm sendo propostos **modelos alternativos**;
 
 ---
 class: middle
 
 # Motivação
 
-- Nos novos modelos, tem-se uma reparametrização em termos da média ou mediana, para possibilitara interpretação dos parâmetros em termos de medidas de posição ou precisão; 
-- Com a reparametrização, uma estrutura de regressão é incluída para **modelar a média ou a médiana**, assim tendo a mesma abordagem dos MLG'S;
-- Na **EGEDD**, no entanto, **não há forma fechada para média e variância**;
+- Nos novos modelos, tem-se uma reparametrização em termos da média ou quantil, para possibilitara interpretação dos parâmetros em termos de medidas de posição ou precisão; 
+
+- Com a reparametrização, uma estrutura de regressão é incluída para **modelar a média ou o quantil**, assim tendo a mesma abordagem dos MLG'S;
 
 --
 
-- Em Séries Temporais, a abordagem mais usual é a Box e Jenkins, no entanto também estão surgindo modelos alternativos;
+- Na **EGEDD**, no entanto, **não há forma fechada para média e variância**, desta forma reparametrizamos a distribuição em termos dos quantis;
 
-- Assim a proposta do projeto, é **desenvolver novos modelos para distribuições com suporte nos reais**, baseando-se na EGEDD e na distrubuição Dagum. 
 
---
+- Em Séries Temporais, uma das abordagens mais usuais é a metodologia Box e Jenkins, no entanto também estão surgindo modelos alternativos, denominados de **modelos dinâmicos**;
 
-- **Aplicações:** principalmente na área da modelagem de dados de sobrevivência.
+- Assim a proposta do projeto, é **desenvolver um novo modelo (modelo dinâmico)  com suporte nos reais**, baseando-se na EGEDD e na distrubuição Dagum; 
 
+---
+class: middle
+
+# Aplicações
+
+- Principalmente na área da modelagem de dados de sobrevivência e em dados econômicos, como análise de confiabilidade, modelagem de renda pessoal e nacionais (micro e macroeconômico).    
+
+
+```{r message=FALSE, warning=FALSE, out.width="40%", cache = TRUE, fig.cap="<center><a href='https://es.wikipedia.org/wiki/Camilo_Dagum'><b>Augusto Dagum: </a> </b>Um dos maiores economistas e estatísticos latinos</center>"}
+knitr::include_graphics("css/imagens/Dagum.png")
+```
 
 ---
 class: middle
@@ -84,7 +97,7 @@ $$F_Y(y)=1-\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\
 $$y > 0$$
 --
 
-## Espaço Paramétrico
+## Paramêtros
 
 $$\alpha,\sigma,\lambda,\delta,\eta,\gamma > 0$$
 --
@@ -100,10 +113,7 @@ $$Q_Y(\tau)=\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\left(1-(1-\tau)^\frac{
 ## Função densidade de probabilidade
 $$f_Y(y)= \frac{\alpha\sigma\lambda\delta\eta\gamma\left(1+\alpha y^{-\delta}\right)^{-\sigma-1}\left[1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right]^{\gamma-1}}{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{1-\lambda}}$$
 
-$$+ \frac{[1-(1-(1+\alpha y^{-\delta})^{-\sigma})^{\gamma}]^{\eta-1}}{y^{\delta+1}\left\{1-\left[1-\left(1-\left(1+\alpha y^{-\delta}\right)^{-\sigma}\right)^{\gamma}\right]^{\eta}\right\}^{1-\lambda}} \quad  y > 0$$
---
-
-## Não há fórmula fechada para a média e variância
+$$*[1-(1-(1+\alpha y^{-\delta})^{-\sigma})^{\gamma}]^{\eta-1}$$
 
 ---
 
@@ -219,69 +229,96 @@ $$\delta=-\frac{1}{\log(\mu)}\log\left\{\frac{1}{\alpha}\left[\left(1-\left(1-\l
 class: middle
 
 
-# Modelo de Séries Temporais Com Regressão
+# Regressão Dagum
 Incluindo a estrutura de regressão pelo quantil, por:
 $$g(\mu_t)={x}_t^{\top}{\boldsymbol{\beta}}=\sum_{j=1}^{k}{x}_{tj}{\boldsymbol{\beta}}=\eta_t, \quad t=1, \ldots, n,$$
-$$com\quad {\beta}=(\beta_1, \ldots, \beta_k)^{\top}$$
+$$com\quad {\boldsymbol\beta}=(\beta_1, \ldots, \beta_k)^{\top}$$
 --
 
 ## Função de ligação
-A função de ligação é $g({\mu_t})=\log({\mu_t})$, então temos:
+Necessita ser contínua e duas vezes diferenciável, logo a nossa função de ligação é $g({\mu_t})=\log({\mu_t})$, então temos:
 
-$$\mu_t=\exp\left({x_t}^\top{\beta}\right)=\exp(\eta_t), \quad\mbox{para}\quad t=1, \cdots, n.$$
+$$\mu_t=\exp\left({x_t}^\top{\boldsymbol\beta}\right)=\exp(\eta_t)$$
 Assim, ficaremos com o vetor de parâmetros, sendo:
-$${\theta}=(\alpha,\sigma,\lambda,\eta,\gamma,{\beta})$$ 
-Em que $\mu_t$ é o quantil da observação $y_t$ no tempo $t$ e 
+$${\boldsymbol\theta}=(\alpha,\sigma,\lambda,\eta,\gamma,{\boldsymbol\beta^{\top}})^{\top}$$ 
+Em que $\mu_t$ é o quantil da observação $y_t$ no tempo $t$.
 ---
 class: middle
 
-## Modelo ARMA(p,q)
+# Modelo DARMA(p,q)
 
-Modelo geral para $\mu$:
+Modelo geral para $\mu_t$:
 
-$$g(\mu_t) = {x}_t^{\top}{\beta} + u_t $$
-Sabendo que pela estrutura arma temos uma relação que inclui o componente $u_t$:
-$u_t = \frac{\phi(\beta)}{\theta(\beta)}\epsilon_t$
+$$g(\mu_t) = {x}_t^{\top}{\boldsymbol\beta} + u_t $$
+Sabendo que pela estrutura ARMA temos uma relação que inclui o componente $u_t$:
+$$u_t = \frac{\phi(B)}{\theta(B)}\epsilon_t$$
 --
 Ficando:
 
-$$g(\mu_t) = {x}_t^{\top}{\beta} + \frac{\phi(\beta)}{\theta(\beta)}\epsilon_t$$
+$$g(\mu_t) = {x}_t^{\top}{\boldsymbol\beta} + \frac{\phi(B)}{\theta(B)}\epsilon_t$$
 
 Onde: 
 
 
-$$\phi(\beta)=-\sum_{j=0}^{p}\phi_jz^j,\quad \theta(\beta)=-\sum_{j=0}^{q}\theta_jz^j$$
+$$\phi(Z)=-\sum_{i=0}^{p}\phi_iz^i,\quad \theta(Z)=-\sum_{j=0}^{q}\theta_iz^i$$
 
 ---
 class: middle
 
-Desenvolvendo um pouco algébricamente, conseguimos:
-$$\phi(\beta)(g(\mu_t) -{x}_t^{\top}{\beta}) = \phi(\beta)\epsilon_t$$
+Desenvolvendo um pouco algebricamente, conseguimos:
+$$\phi(B)(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) = \phi(B)\epsilon_t$$
 
-$$\left(1\:-\:\phi _1\beta \:-\:\phi _2\beta ^2,\:\ldots ,\:\phi _p\beta ^p\:\right)\left(g\left(\mu _t\right)\:-x_t^{\top } \right)\:=\:\phi \left(\beta \right)\epsilon _t$$
+$$\left(1\:-\:\phi _1B \:-\:\phi _2B ^2,\:\ldots ,\:\phi _pB ^p\:\right)\left(g\left(\mu _t\right)\:-x_t^{\top } \right)\:=\:\phi \left(B\right)\epsilon _t$$
 --
 
 
 Até chegar no:
 
 ## Modelo final ARMA:
-$$g(\mu_t) -{x}_t^{\top}{\beta} = \sum _{p=1}^n\phi_p(g(\mu_t) -{x}_t^{\top}{\beta}) + \phi(\beta)\epsilon_t$$
+$$g(\mu_t) = \sum _{p=1}^n\phi_p(g(\mu_t) -{x}_t^{\top}{\boldsymbol\beta}) + \phi(B)\epsilon_t + {x}_t^{\top}{\beta}$$
+---
+class: middle
+# Estimação dos parâmetos
+
+- A estimação dos parâmetros será realizada através de Estimadores de Máxima Verossimilhança (EMV) e a máxima $L_q$-verossimilhança (M$L_q$E), com o vetor de parâmetros:
+
+$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\delta)$$
+--
+## Função de log-verossimilhança:
+
+$$\ell_t(\boldsymbol{\theta},y_t) = \log(\alpha\delta\sigma\gamma\eta\lambda)-(\delta+1)\log(y_t)-(\sigma+1)\log(z_t)+(\gamma-1)\log\left(1-z_t^{-\sigma}\right)$$
+$$+(\eta-1)\log\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]+(\lambda-1)\log\left\{1-\left[1-\left(1-z_t^{-\sigma}\right)^\gamma\right]^\eta\right\}$$
+---
+class: middle
+# Estimação dos parâmetos
+
+## Estimador
+ - Para encontramos o EMV, só precisamos derivar a função em relação ao parâmetro e igualar a zero, porém em algumas derivadas, temos dificuldade algébrica igualar a zero, então usamos métodos numéricos, como a derivada a baixo:
+ 
+$$\frac{\partial l}{\partial \sigma } = \frac{n}{\sigma} - \sum_{i=0}^{n}log(z_i) + (\gamma - 1)\sum_{i=0}^{n}\frac{z_i^{-\sigma}log(z_i)}{1-z_i^{-\sigma}} - (\eta - 1)\sum_{i=0}^{n}\frac{{\gamma}z_i^{-\sigma}(1-z_i^{-\sigma})^{\gamma - 1}log(z_i)}{1 - (1-z_i^{-\sigma})^{\gamma}}$$
+
+--
+## Reparametrização
+ - Para colocar a estrutura de regressão, temos que utilizar a reparametrizão, por exemplo para $\delta$, assim o vetor de parâmetros fica:
+
+$$\boldsymbol{\theta}=(\alpha,\sigma,\gamma,\eta,\lambda,\boldsymbol{\beta}^\top).$$
+
 ---
 class: middle
 
 # Outros Procedimentos Estatísticos:
 - Construção de testes de hipótese para verificar distribuição dos dados, verificando se é para a EGEDD ou um submodleo;
-- Utilização de métodos númericos para execução de simulações (Newton-Rapson, Optim, Gosolnp);
+- Utilização de métodos númericos para execução de simulações (Newton-Rapson, Gosolnp com os métodos CG, BFGS e L-BFGS-B);
 - Utilização de Simulações de Monte Carlo para estimação de parâmetros e análise de diagnósticos dos modelos;
-
-
-
+- Desenvolvimento de Intervalos de Confiança e testes de hipóteses baseados na distribuição assintótica dos EMV's;
+- Utilização dos estimadores de Entropia Extensiva;
+- Aplicação a dados reais.
 
 
 
 ---
 ```{r}
-knitr::include_app("https://vitorpereira.shinyapps.io/Aqui/")
+knitr::include_app("https://vitorpereira.shinyapps.io/EGEDD_FDP/")
 #build_pdf("docs/index.html", complex_slides = TRUE, partial_slides = TRUE)
 ```
 
