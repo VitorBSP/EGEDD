@@ -316,6 +316,8 @@ knitr::include_app("https://vitorpereira.shinyapps.io/EGEDD_FDP/", height = '600
 
 
 ---
+class: middle
+
 # Referências Bibliográficas
 
 - Dagum, C. (1977). El modelo log-logístico y la distribución del ingreso en la
