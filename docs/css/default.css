@@ -51,6 +51,11 @@ blockquote {
   border-left: solid 5px lightgray;
   padding-left: 1em;
 }
+
+.remark-slide-content.full-slide-fig{
+  padding: 0px 0px 0px 0px;
+  width: 100%;}
+
 .remark-slide table {
   margin: auto;
   border-top: 1px solid #666;
